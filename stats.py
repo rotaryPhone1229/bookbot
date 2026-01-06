@@ -25,3 +25,15 @@ def count_char():
         else:
             char_dict['OTHER'] += 1
     return char_dict
+
+def sort_on(item):
+    return item["num"]
+
+def dict_sort():
+    list_o_dicts = []
+    num_chars = count_char()
+    for item in num_chars:
+        list_o_dicts.append({"char":item, "num":num_chars[item]})
+    list_o_dicts.sort(reverse=True, key=sort_on)
+    return list_o_dicts
+    
