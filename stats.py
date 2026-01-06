@@ -1,3 +1,5 @@
+import sys
+
 def get_book_text(file_path):
     #Returns the text as a string
     with open(file_path) as f:
@@ -5,7 +7,7 @@ def get_book_text(file_path):
 
 def count_words():
     #Splits the string so each word is item in list, counts words
-    words = get_book_text("books/frankenstein.txt").split()
+    words = get_book_text(sys.argv[1]).split()
     num_words = len(words)
     return num_words
 
@@ -18,7 +20,7 @@ def count_char():
                  '/':0, '"':0, '1':0, '2':0, '3':0, '4':0,
                  '5':0, '6':0, '7':0, '8':0, '9':0, '0':0,
                  'æ':0, 'â':0, 'ê':0, 'ë':0, 'ô':0, 'OTHER': 0}
-    chars = get_book_text("books/frankenstein.txt").lower()
+    chars = get_book_text(sys.argv[1]).lower()
     for i in chars:
         if i in char_dict:
             char_dict[i] += 1
